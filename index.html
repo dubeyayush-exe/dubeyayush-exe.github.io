@@ -26,14 +26,8 @@
         .section-bg {
              background-color: #111111;
         }
-        .fade-in {
+        .content-fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
         .glass-nav {
             background: rgba(10, 10, 10, 0.5);
@@ -47,6 +41,10 @@
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+        }
+        .experience-image-container {
+            overflow: hidden;
+            border-radius: 0.5rem;
         }
     </style>
 </head>
@@ -100,15 +98,15 @@
         <!-- Experience Section -->
         <section class="py-20 md:py-32" id="experience">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="font-serif text-4xl md:text-6xl font-bold text-white">Professional Experience</h2>
+                <div class="text-center mb-16 content-fade-in">
+                    <h2 class="font-serif text-4xl md:text-6xl font-bold text-white experience-title">Professional Experience</h2>
                     <p class="mt-4 text-gray-400 max-w-3xl mx-auto">A journey through cutting-edge AI/ML applications, delivering measurable impact across diverse domains.</p>
                 </div>
 
                 <div class="space-y-20">
                     <!-- Experience Item 1 -->
-                    <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
-                        <div class="rounded-lg overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-12 items-center content-fade-in">
+                        <div class="experience-image-container">
                             <img src="images/NLOS.jpg">
                         </div>
                         <div>
@@ -121,9 +119,9 @@
                         </div>
                     </div>
                     <!-- Experience Item 2 -->
-                    <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
-                         <div class="rounded-lg overflow-hidden md:order-2">
-                            <img src="https://placehold.co/800x600/1a1a1a/e0e0e0?text=Patanjali" alt="Patanjali Project Visual" class="w-full h-full object-cover">
+                    <div class="grid md:grid-cols-2 gap-12 items-center content-fade-in">
+                         <div class="experience-image-container md:order-2">
+                            <img src="https://placehold.co/800x600/1a1a1a/e0e0e0?text=Patanjali" alt="Patanjali Project Visual" class="w-full h-full object-cover experience-image">
                         </div>
                         <div class="md:order-1">
                             <h3 class="font-serif text-3xl font-semibold text-white">Patanjali Ayurveda</h3>
@@ -141,13 +139,13 @@
         <!-- Projects Section -->
         <section class="py-20 md:py-32 bg-black" id="projects">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16 fade-in">
+                <div class="text-center mb-16 content-fade-in">
                     <h2 class="font-serif text-4xl md:text-6xl font-bold text-white">Signature Projects</h2>
                     <p class="mt-4 text-gray-400 max-w-3xl mx-auto">Innovative architecture design, meticulous optimization, and a relentless pursuit of excellence in AI/ML.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project Card 1 -->
-                    <div class="bg-[#1a1a1a] rounded-lg overflow-hidden project-card fade-in">
+                    <div class="bg-[#1a1a1a] rounded-lg overflow-hidden project-card content-fade-in">
                         <img src="https://placehold.co/600x400/2a2a2a/e0e0e0?text=Project+1" alt="Medical Image Analysis" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="font-serif text-2xl font-semibold text-white">Medical Image Analysis</h3>
@@ -155,7 +153,7 @@
                         </div>
                     </div>
                     <!-- Project Card 2 -->
-                    <div class="bg-[#1a1a1a] rounded-lg overflow-hidden project-card fade-in" style="transition-delay: 200ms;">
+                    <div class="bg-[#1a1a1a] rounded-lg overflow-hidden project-card content-fade-in">
                         <img src="https://placehold.co/600x400/2a2a2a/e0e0e0?text=Project+2" alt="Secure Authentication" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="font-serif text-2xl font-semibold text-white">Secure Authentication</h3>
@@ -163,7 +161,7 @@
                         </div>
                     </div>
                     <!-- Project Card 3 -->
-                    <div class="bg-[#1a1a1a] rounded-lg overflow-hidden project-card fade-in" style="transition-delay: 400ms;">
+                    <div class="bg-[#1a1a1a] rounded-lg overflow-hidden project-card content-fade-in">
                         <img src="https://placehold.co/600x400/2a2a2a/e0e0e0?text=Project+3" alt="Heart Failure Prediction" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="font-serif text-2xl font-semibold text-white">Heart Failure Prediction</h3>
@@ -177,12 +175,12 @@
         <!-- Skills Section -->
         <section class="py-20 md:py-32" id="skills">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16 fade-in">
+                <div class="text-center mb-16 content-fade-in">
                     <h2 class="font-serif text-4xl md:text-6xl font-bold text-white">Technical Arsenal</h2>
                     <p class="mt-4 text-gray-400 max-w-3xl mx-auto">A comprehensive toolkit mastered through rigorous practice and real-world application.</p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div class="fade-in">
+                    <div class="content-fade-in">
                         <h3 class="text-xl font-semibold text-white tracking-wider uppercase">Programming</h3>
                         <ul class="mt-4 space-y-2 text-gray-400">
                             <li>Python</li>
@@ -190,7 +188,7 @@
                             <li>Java</li>
                         </ul>
                     </div>
-                    <div class="fade-in" style="transition-delay: 200ms;">
+                    <div class="content-fade-in">
                         <h3 class="text-xl font-semibold text-white tracking-wider uppercase">AI/ML Frameworks</h3>
                         <ul class="mt-4 space-y-2 text-gray-400">
                             <li>TensorFlow</li>
@@ -199,7 +197,7 @@
                             <li>TensorRT</li>
                         </ul>
                     </div>
-                    <div class="fade-in" style="transition-delay: 400ms;">
+                    <div class="content-fade-in">
                         <h3 class="text-xl font-semibold text-white tracking-wider uppercase">Development</h3>
                         <ul class="mt-4 space-y-2 text-gray-400">
                             <li>Spring Boot</li>
@@ -208,7 +206,7 @@
                             <li>Linux</li>
                         </ul>
                     </div>
-                     <div class="fade-in" style="transition-delay: 600ms;">
+                     <div class="content-fade-in">
                         <h3 class="text-xl font-semibold text-white tracking-wider uppercase">Specializations</h3>
                         <ul class="mt-4 space-y-2 text-gray-400">
                             <li>Deep Learning</li>
@@ -223,7 +221,7 @@
 
         <!-- Contact Section -->
         <section class="py-20 md:py-32 bg-black" id="contact">
-            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center fade-in">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center content-fade-in">
                  <h2 class="font-serif text-4xl md:text-6xl font-bold text-white">Connect & Collaborate</h2>
                 <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
                     Ready to push the boundaries of AI. Open to research collaborations, innovative projects, and opportunities to create the future of intelligent systems.
@@ -238,32 +236,70 @@
 
     </div>
 
-    <script>
-        // Fade-in animations on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+    <script>
+        // --- GSAP Animations ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. General Fade-in for content blocks
+        gsap.utils.toArray('.content-fade-in').forEach(elem => {
+            gsap.fromTo(elem, 
+                { opacity: 0, y: 50 }, 
+                {
+                    opacity: 1, 
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: 'top 85%', // Animation starts when the top of the element is 85% from the top of the viewport
+                        toggleActions: 'play none none none'
+                    }
+                }
+            );
         });
 
-        // Mobile menu toggle
+        // 2. Parallax effect for experience images
+        gsap.utils.toArray('.experience-image').forEach(img => {
+            gsap.to(img, {
+                y: "-20%", // Moves the image up as you scroll down
+                ease: "none",
+                scrollTrigger: {
+                    trigger: img.closest('.grid'), // The parent container is the trigger
+                    start: "top bottom", // Starts when the top of the container hits the bottom of the viewport
+                    end: "bottom top", // Ends when the bottom of the container hits the top of the viewport
+                    scrub: true // This makes the animation tied to the scrollbar
+                }
+            });
+        });
+
+        // 3. Scrub animation for the experience title
+        gsap.from(".experience-title", {
+            x: "-100%", // Starts off-screen to the left
+            opacity: 0,
+            ease: "power1.inOut",
+            scrollTrigger: {
+                trigger: "#experience",
+                start: "top 70%",
+                end: "top 40%",
+                scrub: 1.5 // Smoothly scrubs the animation as you scroll through this section
+            }
+        });
+
+        // --- Mobile Menu ---
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Smooth scrolling for navigation links
+        // --- Smooth Scrolling ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                mobileMenu.classList.add('hidden'); // Hide menu on click
+                mobileMenu.classList.add('hidden');
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
