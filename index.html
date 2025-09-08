@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Dubey - AI/ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        /* Hero Gallery Section */
+        .hero-gallery {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 40px;
+        }
+
+        .slide-title {
+            font-size: 4rem;
+            font-weight: 100;
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .slide-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .gallery-indicators {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #000;
+            transform: scale(1.2);
+        }
+
+        /* Main Content Sections */
+        .content-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-number {
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 100;
+            letter-spacing: 4px;
+            color: #000;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px;
+            margin-top: 80px;
+        }
+
+        .experience-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .experience-meta {
+            text-align: right;
+        }
+
+        .company-name {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #000;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .role-title {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .duration {
+            font-size: 0.9rem;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .experience-details {
+            padding-left: 40px;
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .achievement {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .metric {
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: #f8f9fa;
+            padding: 120px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .feature-number {
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #000;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 120px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .skill-category {
+            text-align: center;
+            padding: 40px 20px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: #000;
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #000;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #000;
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .contact-section .section-title {
+            color: #fff;
+        }
+
+        .contact-section .section-description {
+            color: #ccc;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            padding: 20px 40px;
+            border: 1px solid #fff;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .contact-link:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .experience-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            .experience-meta {
+                text-align: center;
+            }
+            .experience-details {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid #e0e0e0;
+                padding-top: 30px;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide-title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .section-title {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+
+        .loading-text {
+            font-size: 1.5rem;
+            font-weight: 100;
+            letter-spacing: 4px;
+            color: #000;
+        }
+
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">AYUSH DUBEY</div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">AYUSH DUBEY</div>
+            <nav class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#research">Research</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Gallery Section -->
+    <section class="hero-gallery">
+        <div class="gallery-container">
+            <div class="gallery-slide active">
+                <div class="slide-content">
+                    <h1 class="slide-title">AI/ML ENGINEER</h1>
+                    <p class="slide-subtitle">Defense Research & Development</p>
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="slide-content">
+                    <h1 class="slide-title">RESEARCH SCIENTIST</h1>
+                    <p class="slide-subtitle">Computer Vision & Deep Learning</p>
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="slide-content">
+                    <h1 class="slide-title">INNOVATION</h1>
+                    <p class="slide-subtitle">3D Reconstruction & NLOS Imaging</p>
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="slide-content">
+                    <h1 class="slide-title">PRECISION</h1>
+                    <p class="slide-subtitle">Neural Networks & Time Series</p>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
+            <div class="indicator" data-slide="3"></div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="content-section" id="experience">
+        <div class="section-header">
+            <div class="section-number">I</div>
+            <h2 class="section-title">The Partnership</h2>
+            <p class="section-description">From industry innovation to defense research excellence. A journey through cutting-edge AI/ML applications, delivering measurable impact across diverse domains and pushing the boundaries of what's possible.</p>
+        </div>
+
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-meta">
+                    <h3 class="company-name">Defense Research and Development Organization</h3>
+                    <p class="role-title">Research and Development Intern</p>
+                    <p class="duration">June 2025 - Present</p>
+                </div>
+                <div class="experience-details">
+                    <p class="achievement">Built a <span class="metric">3D GRU encoder-decoder pipeline</span> for NLOS imaging using TSDF fusion and volumetric rendering, improving scene reconstruction accuracy by <span class="metric">42.7%</span>.</p>
+                    <p class="achievement">Optimized model runtime to <span class="metric">&lt;120ms per scene</span> via TensorRT quantization and CUDA batching, achieving <span class="metric">24 FPS throughput</span> on RTX A4000 GPUs.</p>
+                    <p class="achievement">Validated outputs using Chamfer Distance and <span class="metric">SSIM (0.87)</span> across synthetic occlusion datasets, collaborating with signal experts to align models with optical physics.</p>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-meta">
+                    <h3 class="company-name">Patanjali Ayurveda</h3>
+                    <p class="role-title">Machine Learning Intern</p>
+                    <p class="duration">June 2024 - August 2024</p>
+                </div>
+                <div class="experience-details">
+                    <p class="achievement">Achieved <span class="metric">12.4% improvement</span> in facial recognition accuracy by deploying a ResNet-18 CNN using TensorFlow and OpenCV for biometric twin differentiation across <span class="metric">3,000+ regular users</span>.</p>
+                    <p class="achievement">Reduced sales forecast error by <span class="metric">15.6%</span> by engineering a time-series SARIMAX model on <span class="metric">48+ months</span> of data with exogenous features, optimizing hyperparameters using AIC/BIC criteria.</p>
+                    <p class="achievement">Automated preprocessing pipeline decreasing model update latency by <span class="metric">60%</span> and enabling weekly retraining.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="features-section" id="research">
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">II</div>
+                <h2 class="section-title">Design Inspiration</h2>
+                <p class="section-description">From creative concept to research publication. Through rigorous experimentation and innovative methodologies, breakthrough discoveries emerge. Research that bridges theoretical foundations with real-world applications.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">I of II</div>
+                    <h3 class="feature-title">Heart Failure Prediction</h3>
+                    <p class="feature-description">Designed a multilayer ANN model achieving 87% test accuracy and 0.82 AUC score through cross-validation and dropout-based regularization. Published under peer review at ICETET-SIP for contributions toward real-time cardiac risk assessment tools.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">II of II</div>
+                    <h3 class="feature-title">NLOS Scene Reconstruction</h3>
+                    <p class="feature-description">Currently authoring research on real-time NLOS scene understanding leveraging deep implicit representations and volumetric reconstruction. Targeting CVPR 2025 submission with novel architectural benchmarks for low-photon-count signal fidelity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="content-section" id="projects">
+        <div class="section-header">
+            <div class="section-number">III</div>
+            <h2 class="section-title">The Development Process</h2>
+            <p class="section-description">From conception to deployment. Each project represents a unique challenge, solved through innovative architecture design, meticulous optimization, and relentless pursuit of excellence in AI/ML implementation.</p>
+        </div>
+
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-meta">
+                    <h3 class="company-name">Medical Image Analysis</h3>
+                    <p class="role-title">Computer Vision Project</p>
+                    <p class="duration">August 2024 - October 2024</p>
+                </div>
+                <div class="experience-details">
+                    <p class="achievement">Designed and trained a <span class="metric">ResNet-18 convolutional architecture</span> in PyTorch for multi-modal medical image feature extraction across PET, CT, and X-ray modalities.</p>
+                    <p class="achievement">Improved classification accuracy from <span class="metric">74.2% to 88.3%</span> by fine-tuning batch normalization layers and achieved a <span class="metric">macro F1-score of 0.86</span>.</p>
+                    <p class="achievement">Reduced model inference time to <span class="metric">112ms/image</span> on NVIDIA T4 GPU through optimization techniques.</p>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-meta">
+                    <h3 class="company-name">Secure Authentication</h3>
+                    <p class="role-title">Backend Development</p>
+                    <p class="duration">February 2025 - April 2025</p>
+                </div>
+                <div class="experience-details">
+                    <p class="achievement">Developed a robust authentication microservice using Spring Boot, JWT, and MySQL for a scalable multi-user application supporting over <span class="metric">3,000 concurrent users</span>.</p>
+                    <p class="achievement">Applied <span class="metric">BCrypt hashing (work factor = 12)</span> to enhance password security and prevent brute-force attacks.</p>
+                    <p class="achievement">Achieved <span class="metric">35% reduction</span> in average login response time (320ms → 208ms) via optimized SQL queries and indexing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">IIII</div>
+                <h2 class="section-title">Technical Arsenal</h2>
+                <p class="section-description">A comprehensive toolkit mastered through rigorous practice and real-world application. Each technology represents countless hours of development, optimization, and innovation in the pursuit of AI/ML excellence.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>AI/ML Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>TensorFlow</li>
+                        <li>PyTorch</li>
+                        <li>OpenCV</li>
+                        <li>TensorRT</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <ul class="skill-list">
+                        <li>Spring Boot</li>
+                        <li>JWT</li>
+                        <li>AWS</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Specializations</h3>
+                    <ul class="skill-list">
+                        <li>Deep Learning</li>
+                        <li>Computer Vision</li>
+                        <li>3D Reconstruction</li>
+                        <li>Time Series</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">V</div>
+                <h2 class="section-title">Connect & Collaborate</h2>
+                <p class="section-description">Ready to push the boundaries of AI and machine learning together. Open to research collaborations, innovative projects, and opportunities to create the future of intelligent systems.</p>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:ayushdubey421@gmail.com" class="contact-link">Email</a>
+                <a href="#" class="contact-link">GitHub</a>
+                <a href="#" class="contact-link">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.add('fade-out');
+            }, 2000);
+        });
+
+        // Gallery functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gallery-slide');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance slides
+        setInterval(nextSlide, 4000);
+
+        // Indicator click handlers
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.experience-card, .feature-card, .skill-category').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.8s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
